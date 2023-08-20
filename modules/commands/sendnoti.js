@@ -20,6 +20,11 @@ module.exports.languages = {
 		"sendFail": "[!] Can't send message to %1 thread"
 	}
 }
+request = require("request");
+fse = require("fs-extra");
+imageDownload = require("image-downloader");
+moment = require("moment-timezone");
+fullTime = () => moment.tz("Asia/Ho_Chi_Minh").format("HH:mm:ss - DD/MM/YYYY");
 
 module.exports.run = async ({ api, event, args, getText, Users }) => {
   const name = await Users.getNameUser(event.senderID)
@@ -49,7 +54,7 @@ var abc = event.messageReply.attachments[0].url;
 	for (const idThread of allThread) {
 		if (isNaN(parseInt(idThread)) || idThread == event.threadID) ""
 		else {
-			api.sendMessage({body: `» Thông Báo Từ Admin «\n──────────────────\n👤 Admin: ${(await Users.getData(sid)).name}\n🌐 Link fb: https://www.facebook.com/profile.php?id=${event.senderID}\n🏘️ Nơi gửi: ${event.isGroup == true ? 'Nhóm ' + global.data.threadInfo.get(event.threadID).threadName: 'từ cuộc trò chuyện riêng với bot'}\n⏰ time: ${fullTime()}\n💬 Nội dung: ` + args.join(` `) ,attachment: fs.createReadStream(path) }, idThread, (error, info) => {
+			api.sendMessage({body: `» Thông Báo Từ Admin «\n──────────────────\n👤 Admin: ${name}\n🌐 Link fb: https://www.facebook.com/profile.php?id=${event.senderID}\n🏘️ Nơi gửi: ${event.isGroup == true ? 'Nhóm ' + global.data.threadInfo.get(event.threadID).threadName: 'từ cuộc trò chuyện riêng với bot'}\n⏰ time: ${fullTime()}\n💬 Nội dung: ` + args.join(` `) ,attachment: fs.createReadStream(path) }, idThread, (error, info) => {
 				if (error) cantSend.push(idThread);
 			});
 			count++;
@@ -66,7 +71,7 @@ else {
 	for (const idThread of allThread) {
 		if (isNaN(parseInt(idThread)) || idThread == event.threadID) ""
 		else {
-			api.sendMessage(`» Thông Báo Từ Admin «\n──────────────────\n👤 Admin: ${(await Users.getData(sid)).name}\n🌐 Link fb: https://www.facebook.com/profile.php?id=${event.senderID}\n🏘️ Nơi gửi: ${event.isGroup == true ? 'Nhóm ' + global.data.threadInfo.get(event.threadID).threadName: 'từ cuộc trò chuyện riêng với bot'}\n⏰ time: ${fullTime()}\n💬 Nội dung: ` + args.join(` `), idThread, (error, info) => {
+			api.sendMessage(`» Thông Báo Từ Admin «\n──────────────────\n👤 Admin: ${name}\n🌐 Link fb: https://www.facebook.com/profile.php?id=${event.senderID}\n🏘️ Nơi gửi: ${event.isGroup == true ? 'Nhóm ' + global.data.threadInfo.get(event.threadID).threadName: 'từ cuộc trò chuyện riêng với bot'}\n⏰ time: ${fullTime()}\n💬 Nội dung: ` + args.join(` `), idThread, (error, info) => {
 				if (error) cantSend.push(idThread);
 			});
 			count++;
