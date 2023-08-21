@@ -11,7 +11,6 @@ module.exports.onLoad = o => setInterval(async() => {
 const moment = require("moment-timezone");
 var timeNow = moment.tz("Asia/Ho_Chi_Minh").format("HH:mm:ss");
 var idad = global.config.ADMINBOT;    
-console.log(timeNow)
   var seconds = moment.tz("Asia/Ho_Chi_Minh").format("ss");
   var timeRestart_1 = `00:00:${seconds}`
   var timeRestart_2 = `01:00:${seconds}`
