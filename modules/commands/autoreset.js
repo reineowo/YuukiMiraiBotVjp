@@ -38,12 +38,13 @@ module. exports. handleEvent = async function({ api, event, args, Users,Threads 
     var timeRestart_23 = `22:00:${seconds}`
     var timeRestart_24 = `23:00:${seconds}`
   //console.log(timeNowRestart)
+setInterval(
   if ((timeNow == timeRestart_1 || timeNow == timeRestart_2 || timeNow == timeRestart_3 || timeNow == timeRestart_4 || timeNow == timeRestart_5 || timeNow == timeRestart_6 || timeNow == timeRestart_7 || timeNow == timeRestart_8 || timeNow == timeRestart_9 || timeNow == timeRestart_10 || timeNow == timeRestart_11 || timeNow == timeRestart_12 || timeNow == timeRestart_13 || timeNow == timeRestart_14 || timeNow == timeRestart_15 || timeNow == timeRestart_16 || timeNow == timeRestart_17 || timeNow == timeRestart_18 || timeNow == timeRestart_19 || timeNow == timeRestart_20 || timeNow == timeRestart_21 || timeNow == timeRestart_22 || timeNow == timeRestart_23 || timeNow == timeRestart_24) && seconds < 2 ) {
     for( let ad of idad) {
   setTimeout(() =>
           api.sendMessage(`⚡️Bây giờ là: ${timeNow}\nBé sẽ tiến hành khởi động lại!!!`,ad, () =>process.exit(1)), 1000);
     }
-    }
+    }, 1000)
 }
 module. exports. run = async  ({ api, event, args }) => {
       const moment = require("moment-timezone");
