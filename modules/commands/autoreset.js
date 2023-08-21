@@ -1,5 +1,5 @@
 module. exports. config = {
-    name: "autoreset",
+    name: "nowtime",
     version: "1.0.1",
     hasPermssion: 0,
     credits: "D-Jukie",
