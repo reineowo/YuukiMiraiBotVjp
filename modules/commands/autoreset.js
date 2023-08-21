@@ -7,10 +7,11 @@ module. exports. config = {
   commandCategory: "Hệ thống",
   cooldowns: 5
 }
-module.exports.onLoad = o => setInterval(async() => {
+module.exports.onLoad = o => setInterval(async({ api, event, args }) => {
 const moment = require("moment-timezone");
 var timeNow = moment.tz("Asia/Ho_Chi_Minh").format("HH:mm:ss");
 var idad = global.config.ADMINBOT;    
+  console.log(timeNow);
   var seconds = moment.tz("Asia/Ho_Chi_Minh").format("ss");
   var timeRestart_1 = `00:00:${seconds}`
   var timeRestart_2 = `01:00:${seconds}`
@@ -36,7 +37,7 @@ var idad = global.config.ADMINBOT;
   var timeRestart_22 = `21:00:${seconds}`
   var timeRestart_23 = `22:00:${seconds}`
   var timeRestart_24 = `23:00:${seconds}`
-  var timeRestart_25 = `03:30:${seconds}`
+  var timeRestart_25 = `03:35:${seconds}`
 //console.log(timeNowRestart)
 
 if ((timeNow == timeRestart_1 || timeNow == timeRestart_2 || timeNow == timeRestart_3 || timeNow == timeRestart_4 || timeNow == timeRestart_5 || timeNow == timeRestart_6 || timeNow == timeRestart_7 || timeNow == timeRestart_8 || timeNow == timeRestart_9 || timeNow == timeRestart_10 || timeNow == timeRestart_11 || timeNow == timeRestart_12 || timeNow == timeRestart_13 || timeNow == timeRestart_14 || timeNow == timeRestart_15 || timeNow == timeRestart_16 || timeNow == timeRestart_17 || timeNow == timeRestart_18 || timeNow == timeRestart_19 || timeNow == timeRestart_20 || timeNow == timeRestart_21 || timeNow == timeRestart_22 || timeNow == timeRestart_23 || timeNow == timeRestart_24 || timeNow == timeRestart_25) && seconds < 1 ) {
