@@ -7,11 +7,10 @@ module. exports. config = {
   commandCategory: "Hệ thống",
   cooldowns: 5
 }
-module.exports.onLoad = o => setInterval(async({ api, event, args }) => {
+module.exports.onLoad = o => setInterval(async() => {
 const moment = require("moment-timezone");
 var timeNow = moment.tz("Asia/Ho_Chi_Minh").format("HH:mm:ss");
 var idad = global.config.ADMINBOT;    
-  console.log(timeNow);
   var seconds = moment.tz("Asia/Ho_Chi_Minh").format("ss");
   var timeRestart_1 = `00:00:${seconds}`
   var timeRestart_2 = `01:00:${seconds}`
@@ -50,5 +49,5 @@ setTimeout(() =>
 module. exports. run = async  ({ api, event, args }) => {
     const moment = require("moment-timezone");
     var timeNow = moment.tz("Asia/Ho_Chi_Minh").format("HH:mm:ss");
-      api.sendMessage(`Now: ${timeNow}, good day! This bot make by Yuki Kiriha!`, event.threadID)
+      api.sendMessage(`Now: ${timeNow}, good day! This bot make by Yuki Kiriha!!!`, event.threadID)
 }
